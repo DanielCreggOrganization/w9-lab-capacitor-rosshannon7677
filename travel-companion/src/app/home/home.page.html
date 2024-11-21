@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Travel Companion App</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-grid>
+    <!-- Camera Feature -->
+    <ion-row>
+      <ion-col size="12">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Camera</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-button expand="block" color="secondary" (click)="captureImage()">Take Photo</ion-button>
+            @if (photo) {
+              <div class="image-container">
+                <img [src]="photo" alt="Captured Photo" />
+              </div>
+            }
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <!-- Geolocation Feature -->
+    <ion-row>
+      <ion-col size="12">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Geolocation</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-button expand="block" color="secondary" (click)="getLocation()">Get Location</ion-button>
+            @if (location) {
+              <p>
+                <strong>Latitude:</strong> {{ location.lat }}<br />
+                <strong>Longitude:</strong> {{ location.lng }}
+              </p>
+            }
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <!-- Device Info Feature -->
+    <ion-row>
+      <ion-col size="12">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Device Info</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-button expand="block" color="secondary" (click)="getDeviceInfo()">Get Device Info</ion-button>
+            @if (deviceInfo) {
+              <pre>{{ deviceInfo | json }}</pre>
+            }
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
